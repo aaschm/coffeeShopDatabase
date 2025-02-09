@@ -1,9 +1,3 @@
-/* 
-Alexandra Schmitz
-CIS 243-801: Intro to SQL
-Due Date: 12-1-2021
-Purpose: Create Procedures/Triggers relavent to database
-*/
 
 -- drop procedure if drinkCount already exists 
 DROP PROCEDURE IF EXISTS drinkCount; 
