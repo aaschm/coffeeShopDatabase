@@ -18,21 +18,6 @@ This table stores information about the employees working at the coffee shop.
 | `empAddress`   | Address of the employee                                              |
 | `position_ID`  | Foreign key referencing the employee's position (from the `positions` table) |
 
-#### Example Query to Insert Employee Data:
-
-```sql
-INSERT INTO employeeInfo (empFirstName, empLastName, empPhone, empAddress, position_ID)
-VALUES ("John", "Doe", "720-222-9999", "12 Rock Ave", 1),
-       ("Jake", "Muck", "720-232-2414", "11 Mineral Ave", 2),
-       ("James", "Luck", "720-245-2314", "10 Sediment Ave", 3),
-       ("Julie", "Amers", "720-222-2266", "1 Plaque Ave", 2),
-       ("Jennise", "Sull", "710-232-2414", "5 Stone Ave", 4),
-       ("Lan", "Smith", "720-243-2111", "1 Sand Ave", 5),
-       ("Thom", "Lafa", "303-221-2000", "7 Water Ave", 1),
-       ("Cindy", "Pan", "720-562-2431", "50 Beach Ave", 1),
-       ("Lina", "Sanders", "720-888-2414", "22 Mountain Ave", 1),
-       ("Loo", "Kim", "720-222-2347", "110 Valey Ave", 1);
-
 ### 2. `drinkmenu`
 
 This table stores information about the drinks offered on the coffee shop's menu.
