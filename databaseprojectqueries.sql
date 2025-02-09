@@ -188,56 +188,6 @@ CREATE TABLE reminders (
     PRIMARY KEY (message_ID)
 );
 
-delimiter //
-CREATE TRIGGER drinkunavailable AFTER INSERT
-ON ordertable
-FOR EACH ROW
-IF NEW.drink_ID = 2 THEN
-SIGNAL SQLSTATE '50001' SET MESSAGE_TEXT = 'Drink is no longer available';
-END IF; //
-delimiter ;
-
-
-
-INSERT INTO ordertable(emp_ID, customerFirstName, customerLastName, drink_ID)
-VALUES(1, 'Andy', 'Candy', 2);
-
-
-SELECT * FROM employeeinfo;
-
--- drop employeeType procedure if exists 
-DROP PROCEDURE IF EXISTS employeeType; 
-
--- Change statement delimiter from semicolon to double front slash 
-DELIMITER //
-CREATE PROCEDURE employeeType()
-BEGIN
-	-- declare local variable as integer type for employeeType procedure 
-	DECLARE employee_count_v INT; 
-    
-    -- select count of emp_ID and store value into local variable  where position_ID = 1 
-	SELECT COUNT(emp_ID)
-	INTO employee_count_V 
-	FROM employeeinfo 
-	WHERE position_ID = 1;
-    
-    -- if/else statement to print message to user based on how many employees are baristas 
-	IF employee_count_v > 0 THEN
-		SELECT CONCAT(employee_count_V, ' employees are baristas') AS message;
-	ELSE
-		SELECT 'No employees are baristas' AS message;
-  END IF; 
-END//
- 
--- Change statement delimiter from double front slash to semicolon 
-DELIMITER ;
- 
- -- call employeeType procedure 
-CALL employeeType();
-
------------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------------
 
 DROP PROCEDURE IF EXISTS drinkMenuValidPrice;
 
